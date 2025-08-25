@@ -1,9 +1,18 @@
-const express = require('express')
-const aiController = require('../controllers/ai.controller')
+// const express = require('express')
+// const aiController = require('../controllers/ai.controller')
 
-const router = express.router()
+// const router = express.router()
 
-router.get("/get-response", aiController.getResponse)
+// router.get("/get-response", aiController.getResponse)
 
 
-module.exports = router
+// module.exports = router
+
+const express = require('express');
+const aiController = require('../controllers/ai.controller');
+
+const router = express.Router();
+
+router.get('/get-response', aiController.getResponse);
+
+module.exports = router;

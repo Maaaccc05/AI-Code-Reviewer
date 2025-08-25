@@ -1,12 +1,27 @@
-const express = require('express')
-const aiRoutes = require('./routes/ai-routes')
+// const express = require('express')
+// const aiRoutes = require('./routes/ai-routes')
 
-const app = express()
+// const app = express()
 
-app.get('/',(req, res) => {
-    res.send('Hello from backend')
-})
+// app.get('/',(req, res) => {
+//     res.send('Hello from backend')
+// })
 
-app.use('/ai', aiRoutes)
+// app.use('/ai', aiRoutes)
 
-module.exports = app 
+// module.exports = app 
+
+const express = require('express');
+const aiRoutes = require('./routes/ai-routes');
+
+const app = express();
+app.use(express.json());
+
+
+app.get('/', (req, res) => {
+    res.send('Hello from backend');
+});
+
+app.use('/ai', aiRoutes);
+
+module.exports = app;
