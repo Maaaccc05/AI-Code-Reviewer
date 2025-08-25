@@ -1,13 +1,27 @@
-import { GoogleGenAI } from "@google/genai";
+// import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({apiKey: process.env.GEMINI_API_KEY});
+// const ai = new GoogleGenAI({apiKey: process.env.GEMINI_API_KEY});
 
-async function main(prompt) {
+// async function main(prompt) {
+//   const response = await ai.models.generateContent({
+//     model: "gemini-2.5-flash",
+//     contents: "prompt",
+//   });
+//   console.log(response.text);
+// }
+
+// module.exports = generateContent
+
+const { GoogleGenAI } = require("@google/genai");
+
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
+async function generateContent(prompt) {
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
-    contents: "prompt",
+    contents: prompt,
   });
-  console.log(response.text);
+  return response.response.text();
 }
 
-module.exports = generateContent
+module.exports = generateContent;
